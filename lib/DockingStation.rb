@@ -1,9 +1,16 @@
 class DockingStation
 
-	DEFAULT_CAPACITY = 10
+  # Unneccessary old method of code.
+  #
+	# DEFAULT_CAPACITY = 10
+  #
+  # def initialize(options = {})
+  #	 @capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
+  #  @bikes = []
+  # end
 
-  def initialize(options = {})
-  	@capacity = options.fetch(capacity, DEFAULT_CAPACITY)
+  def initialize(capacity: 10)
+    @capacity = capacity
     @bikes = []
   end
 
