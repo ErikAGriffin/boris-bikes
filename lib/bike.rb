@@ -1,8 +1,8 @@
 class Bike
 
 	def initialize
-		@broken = false
-	end
+    fix!
+  end
 
   def broken?
     @broken
