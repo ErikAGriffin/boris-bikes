@@ -2,7 +2,7 @@ require 'DockingStation'
 
 describe DockingStation do
 
-  let(:bike) {Bike.new}
+  let(:bike) {double :bike}
   let(:station) {DockingStation.new(capacity: 20)}
 
   def fill_station(station)
