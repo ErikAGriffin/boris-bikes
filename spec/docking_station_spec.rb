@@ -12,7 +12,11 @@ describe DockingStation do
 
   end
 
-
+  it 'should release a bike' do
+  	station.dock(bike)
+  	station.release(bike)
+  	expect(station.bikeCount).to eq(0)
+  end
 
 
 

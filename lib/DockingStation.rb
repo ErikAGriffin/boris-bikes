@@ -12,6 +12,8 @@ class DockingStation
     @bikes.count
   end
 
-
+  def release(bike)
+  	@bikes.delete(bike)
+  end
 
 end
