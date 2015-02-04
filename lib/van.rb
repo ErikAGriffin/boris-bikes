@@ -2,12 +2,6 @@ require 'BikeContainer'
 
 class Van < BikeContainer
 
-  def initialize
-    super
-
-    @location = 'garage';
-
-  end
 
 
   def location

@@ -6,8 +6,9 @@ describe DockingStation do
   let(:workingBike) {double :bike, broken?: false, break!: :brokenBike}
   let(:station) {DockingStation.new(capacity: 20)}
 
-  def fill_station(station)
-    20.times { station.dock(Bike.new) }
+
+ def fill_container(container)
+    container.capacity.times {container.dock(workingBike)}
   end
 
   it 'should accept bikes' do
@@ -25,12 +26,12 @@ describe DockingStation do
 
   it 'should know when it\'s full' do
   	expect(station).not_to be_full
-  	fill_station station
+  	fill_container station
   	expect(station).to be_full
   end
 
   it 'should not accept a bike if it\'s full' do
-    fill_station station
+    fill_container station
     expect{station.dock(workingBike)}.to raise_error(RuntimeError, 'Station is Full')
   end
 
@@ -39,6 +40,12 @@ describe DockingStation do
     station.dock(brokenBike)
     expect(station.availableBikes).to eq([workingBike])
 
+  end
+
+  it 'should show broken bikes' do
+    station.dock(workingBike)
+    station.dock(brokenBike)
+    expect(station.brokenBikes).to eq([brokenBike])
   end
 
 end

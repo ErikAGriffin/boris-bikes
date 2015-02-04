@@ -5,9 +5,12 @@ class BikeContainer
     @bikes = []
   end
 
+  def capacity
+    @capacity
+  end
+
   def dock (bike)
     raise "Container is Full" if full?
-
 
     @bikes << bike
   end
@@ -27,6 +30,12 @@ class BikeContainer
   def availableBikes
     @bikes.select { |bike| !bike.broken? }
   end
+
+  def brokenBikes
+    @bikes.select { |bike| bike.broken? }
+  end
+
+
 
 
 end
