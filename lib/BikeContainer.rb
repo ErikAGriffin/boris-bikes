@@ -7,6 +7,8 @@ class BikeContainer
 
   def dock (bike)
     raise "Container is Full" if full?
+
+
     @bikes << bike
   end
 
