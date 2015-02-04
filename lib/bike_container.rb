@@ -27,4 +27,8 @@ class BikeContainer
 		@bikes.select { |bike| !bike.broken? }
 	end
 
+	def capacity
+		@capacity
+	end
+
 end
