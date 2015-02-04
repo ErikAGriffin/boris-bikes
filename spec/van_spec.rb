@@ -38,7 +38,7 @@ describe Van do
   end
 
   it 'should travel to garage' do
-    van.travel_to(dockingStation)
+    van.travel_to(dock)
     van.travel_to('garage')
     expect(van.location).to eq('garage')
   end
