@@ -1,11 +1,11 @@
-require_relative 'bike_container'
+require 'bike_container'
 
-class DockingStation
+class DockingStation < BikeContainer
 
-	include BikeContainer
 
-	def initialize(options = {})
-		self.capacity = options.fetch(:capacity, capacity)
-	end
+def dock(bike)
+	raise "Station is full" if full?
+	@bikes << bike
+end
 
 end
