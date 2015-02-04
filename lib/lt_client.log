@@ -1,0 +1,15 @@
+# Logfile created on 2015-02-04 14:15:03 +0000 by logger.rb/41954
+D, [2015-02-04T14:15:03.731369 #34389] DEBUG -- : Client started with command:
+D, [2015-02-04T14:15:03.731420 #34389] DEBUG -- : /Users/Erik/Library/Application Support/LightTable/plugins/Ruby_Instarepl/rb-src/lt_client.rb
+D, [2015-02-04T14:15:03.731444 #34389] DEBUG -- : ["53339", "730"]
+D, [2015-02-04T14:15:03.732581 #34389] DEBUG -- : Client Initialized
+D, [2015-02-04T14:15:03.732976 #34389] DEBUG -- : Connection Established
+D, [2015-02-04T14:15:03.733239 #34389] DEBUG -- : Sent Client info
+D, [2015-02-04T14:15:03.733317 #34389] DEBUG -- : {"name":"lib","client-id":730,"dir":"/Users/Erik/Makers/Projects/boris-bikes/lib","commands":["editor.eval.ruby"],"type":"ruby"}
+D, [2015-02-04T14:15:03.749041 #34389] DEBUG -- : Received Data:
+D, [2015-02-04T14:15:03.749161 #34389] DEBUG -- : [233,"editor.eval.ruby",{"pos":{"line":32,"ch":2},"mime":"text/x-ruby","tags":["editor.ruby"],"type-name":"Ruby","line-ending":"\n","meta":{"start":32,"end":32},"path":"/Users/Erik/Makers/Projects/boris-bikes/lib/bike_container.rb","name":"bike_container.rb","code":"  "}]
+
+D, [2015-02-04T14:15:03.749366 #34389] DEBUG -- : Eval Candidate 
+  
+D, [2015-02-04T14:15:03.749592 #34389] DEBUG -- : Sending data:
+D, [2015-02-04T14:15:03.749667 #34389] DEBUG -- : [233,"editor.eval.ruby.success",{"meta":{"start":32,"end":32}}]
