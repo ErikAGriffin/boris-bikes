@@ -14,16 +14,16 @@ describe Garage do
   end
 
   it 'should accept bikes' do
-    expect(garage.bikeCount).to eq(0)
+    expect(garage.bike_count).to eq(0)
     garage.dock(working_bike)
-    expect(garage.bikeCount).to eq(1)
+    expect(garage.bike_count).to eq(1)
 
   end
 
   it 'should release a bike' do
   	garage.dock(working_bike)
   	garage.release(working_bike)
-  	expect(garage.bikeCount).to eq(0)
+  	expect(garage.bike_count).to eq(0)
   end
 
   it 'should know when it\'s full' do
@@ -40,7 +40,7 @@ describe Garage do
   it 'should show available bikes' do
     garage.dock(working_bike)
     garage.dock(broken_bike)
-    expect(garage.availableBikes).to eq([working_bike])
+    expect(garage.available_bikes).to eq([working_bike])
 
   end
 

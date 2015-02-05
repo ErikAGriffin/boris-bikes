@@ -12,16 +12,16 @@ describe DockingStation do
   end
 
   it 'should accept bikes' do
-    expect(station.bikeCount).to eq(0)
+    expect(station.bike_count).to eq(0)
     station.dock(working_bike)
-    expect(station.bikeCount).to eq(1)
+    expect(station.bike_count).to eq(1)
 
   end
 
   it 'should release a bike' do
   	station.dock(working_bike)
   	station.release(working_bike)
-  	expect(station.bikeCount).to eq(0)
+  	expect(station.bike_count).to eq(0)
   end
 
   it 'should know when it\'s full' do
@@ -38,7 +38,7 @@ describe DockingStation do
   it 'should show available bikes' do
     station.dock(working_bike)
     station.dock(broken_bike)
-    expect(station.availableBikes).to eq([working_bike])
+    expect(station.available_bikes).to eq([working_bike])
 
   end
 

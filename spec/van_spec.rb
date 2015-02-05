@@ -2,7 +2,7 @@ require 'Van'
 
 describe Van do
 
-	let(:broken_bike) {double :bike, broken?: true, fix!: :workingBike}
+	let(:broken_bike) {double :bike, broken?: true, fix!: :working_bike}
   let(:working_bike) {double :bike, broken?: false, break!: :broken_bike}
   let(:station) {double :dockingStation}
   let(:stackedDock) {double :dockingStation, broken_bikes: [broken_bike]}
@@ -11,22 +11,22 @@ describe Van do
 
 
   def fill_container(container)
-    container.capacity.times {container.dock(workingBike)}
+    container.capacity.times {container.dock(working_bike)}
   end
 
 
 
 
   it 'should hold bikes' do
-  	expect(van.bikeCount).to eq(0)
-  	van.dock(workingBike)
-  	expect(van.bikeCount).to eq(1)
+  	expect(van.bike_count).to eq(0)
+  	van.dock(working_bike)
+  	expect(van.bike_count).to eq(1)
   end
 
   it 'should release bikes' do
-    van.dock(workingBike)
-    van.release(workingBike)
-    expect(van.bikeCount).to eq(0)
+    van.dock(working_bike)
+    van.release(working_bike)
+    expect(van.bike_count).to eq(0)
   end
 
 
