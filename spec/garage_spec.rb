@@ -4,25 +4,25 @@ describe Garage do
 
 
   let(:garage) {Garage.new}
-  let(:brokenBike) {double :bike, broken?: true, fix!: :workingBike}
-  let(:workingBike) {double :bike, broken?: false, break!: :brokenBike}
+  let(:broken_bike) {double :bike, broken?: true, fix!: :working_bike}
+  let(:working_bike) {double :bike, broken?: false, break!: :broken_bike}
   let(:station) {double :dockingstation}
 
 
  def fill_container(container)
-    container.capacity.times {container.dock(workingBike)}
+    container.capacity.times {container.dock(working_bike)}
   end
 
   it 'should accept bikes' do
     expect(garage.bikeCount).to eq(0)
-    garage.dock(workingBike)
+    garage.dock(working_bike)
     expect(garage.bikeCount).to eq(1)
 
   end
 
   it 'should release a bike' do
-  	garage.dock(workingBike)
-  	garage.release(workingBike)
+  	garage.dock(working_bike)
+  	garage.release(working_bike)
   	expect(garage.bikeCount).to eq(0)
   end
 
@@ -34,20 +34,20 @@ describe Garage do
 
   it 'should not accept a bike if it\'s full' do
     fill_container garage
-    expect{garage.dock(workingBike)}.to raise_error(RuntimeError, 'Garage is Full')
+    expect{garage.dock(working_bike)}.to raise_error(RuntimeError, 'Garage is Full')
   end
 
   it 'should show available bikes' do
-    garage.dock(workingBike)
-    garage.dock(brokenBike)
-    expect(garage.availableBikes).to eq([workingBike])
+    garage.dock(working_bike)
+    garage.dock(broken_bike)
+    expect(garage.availableBikes).to eq([working_bike])
 
   end
 
   it 'should show broken bikes' do
-    garage.dock(workingBike)
-    garage.dock(brokenBike)
-    expect(garage.brokenBikes).to eq([brokenBike])
+    garage.dock(working_bike)
+    garage.dock(broken_bike)
+    expect(garage.broken_bikes).to eq([broken_bike])
   end
 
 

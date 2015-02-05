@@ -3,9 +3,9 @@ require 'Van'
 describe Van do
 
 	let(:broken_bike) {double :bike, broken?: true, fix!: :workingBike}
-  let(:working_bike) {double :bike, broken?: false, break!: :brokenBike}
+  let(:working_bike) {double :bike, broken?: false, break!: :broken_bike}
   let(:station) {double :dockingStation}
-  let(:stackedDock) {double :dockingStation, brokenBikes: [brokenBike]}
+  let(:stackedDock) {double :dockingStation, broken_bikes: [broken_bike]}
 
   let(:van) {Van.new}
 
