@@ -1,8 +1,11 @@
+require 'BikeCollection'
 class BikeContainer
+
+  attr_reader :bikes
 
   def initialize(capacity: 10)
     @capacity = capacity
-    @bikes = []
+    @bikes = BikeCollection.new
   end
 
   def capacity
@@ -11,12 +14,11 @@ class BikeContainer
 
   def dock (bike)
     raise "Container is Full" if full?
-
-    @bikes << bike
+    @bikes.add_bike(bike)
   end
 
   def bike_count
-    @bikes.count
+    @bikes.bike_count
   end
 
   def release(bike)

@@ -12,6 +12,7 @@ describe DockingStation do
   end
 
   it 'should accept bikes' do
+    p station.bikes
     expect(station.bike_count).to eq(0)
     station.dock(working_bike)
     expect(station.bike_count).to eq(1)
