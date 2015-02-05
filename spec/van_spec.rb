@@ -2,9 +2,10 @@ require 'Van'
 
 describe Van do
 
-	let(:brokenBike) {double :bike, broken?: true, fix!: :workingBike}
-  let(:workingBike) {double :bike, broken?: false, break!: :brokenBike}
-  let(:dock) {double :dockingStation}
+	let(:broken_bike) {double :bike, broken?: true, fix!: :workingBike}
+  let(:working_bike) {double :bike, broken?: false, break!: :brokenBike}
+  let(:station) {double :dockingStation}
+  let(:stackedDock) {double :dockingStation, brokenBikes: [brokenBike]}
 
   let(:van) {Van.new}
 
@@ -14,10 +15,7 @@ describe Van do
   end
 
 
-  def transfer_broken_bikes
 
-
-  end
 
   it 'should hold bikes' do
   	expect(van.bikeCount).to eq(0)
@@ -33,19 +31,49 @@ describe Van do
 
 
   it 'should travel to dock station' do
-    van.travel_to(dock)
-    expect(van.location).to eq(dock)
+    van.travel_to(station)
+    expect(van.location).to eq(station)
   end
 
   it 'should travel to garage' do
-    van.travel_to(dock)
+    van.travel_to(station)
     van.travel_to('garage')
     expect(van.location).to eq('garage')
   end
 
-  it 'should take broken bikes from station to garage' do
+  it 'should take broken bikes from station' do
+    broken_bike = double :bike, broken?: true
+    station     = double :station, broken_bikes: [broken_bike], release: broken_bike
+
+    expect(station).to receive(:release).with(broken_bike)
+    van.collect_broken_bikes_from station
+    expect(van.broken_bikes).to eq([broken_bike])
+  end
+
+  it 'should unload brokenbikes at garage' do
+    # van garage, broken bike
+    # You don't have to add methods here, using expect rspec runs properly
+    garage = double :garage, dock: broken_bike
+
+    van.dock(broken_bike)
+
+    # Expect always comes before message send
+    # When testing communication
+    expect(garage).to receive(:dock).with(broken_bike)
+
+    van.unload_broken_bikes_to(garage)
+
+
+    expect(van.broken_bikes).to eq([])
+
 
   end
+
+
+
+
+
+
 
 
 

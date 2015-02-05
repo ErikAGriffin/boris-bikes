@@ -15,7 +15,7 @@ class BikeContainer
     @bikes << bike
   end
 
-  def bikeCount
+  def bike_count
     @bikes.count
   end
 
@@ -24,14 +24,14 @@ class BikeContainer
   end
 
   def full?
-    bikeCount == @capacity
+    bike_count == @capacity
   end
 
-  def availableBikes
+  def available_bikes
     @bikes.select { |bike| !bike.broken? }
   end
 
-  def brokenBikes
+  def broken_bikes
     @bikes.select { |bike| bike.broken? }
   end
 
